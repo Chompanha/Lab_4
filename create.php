@@ -1,3 +1,26 @@
+<?php 
+
+require_once 'db.php';
+if(isset($_POST['submit'])){
+    $product_name =htmlentities($_POST['name']);
+    $gender =htmlentities($_POST['gender']);
+    $class =htmlentities($_POST['class']);
+    $pass =md5(htmlentities($_POST['pass']));
+
+
+}
+
+
+?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +37,15 @@
        <div class="vh-100 d-flex justify-content-center align-items-center flex-column gap-4">
        <h3>Add Your Product Here</h3>
 
-                <form>
+                <form action="index.php" method="POST">
                       <div class="mb-3">
                         <label for="name" class="form-label">Product Name</label>
                          <input type="name" class="form-control" id="name" >
                       </div>
 
                       <div class="mb-3">
-                        <label for="name" class="form-label">Amount</label>
-                         <input type="name" class="form-control" id="name" >
+                        <label for="amount" class="form-label">Amount</label>
+                         <input type="name" class="form-control" id="amount" >
                       </div>
 
                       <div class="mb-3">
