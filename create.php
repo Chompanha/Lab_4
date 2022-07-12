@@ -3,15 +3,26 @@
 require_once 'db.php';
 if(isset($_POST['submit'])){
     $product_name =htmlentities($_POST['name']);
-    $gender =htmlentities($_POST['gender']);
-    $class =htmlentities($_POST['class']);
-    $pass =md5(htmlentities($_POST['pass']));
-
+    $amount =htmlentities($_POST['amount']);
+    $price =htmlentities($_POST['price']);
+  if(empty( $product_name) || empty($amount) || empty( $price)){
+    echo "<script>alert('Must Fill all Informtion')</script>";
+  }else{
+    $value= array('name'=> $product_name,'amount'=>$amount,'price'=>$price);
+    $query=$fluent->insertInto('product')->values($value)->execute();
+    echo "<script>alert('Insertion Success')</script>";
+  }
+    
+   
 
 }
 
 
+
 ?>
+
+
+
 
 
 
@@ -37,26 +48,27 @@ if(isset($_POST['submit'])){
        <div class="vh-100 d-flex justify-content-center align-items-center flex-column gap-4">
        <h3>Add Your Product Here</h3>
 
-                <form action="index.php" method="POST">
+                <form action="create.php" method="POST">
                       <div class="mb-3">
                         <label for="name" class="form-label">Product Name</label>
-                         <input type="name" class="form-control" id="name" >
+                         <input type="name" class="form-control" id="name" name="name" >
                       </div>
 
                       <div class="mb-3">
                         <label for="amount" class="form-label">Amount</label>
-                         <input type="name" class="form-control" id="amount" >
+                         <input type="name" class="form-control" id="amount" name="amount" >
                       </div>
 
                       <div class="mb-3">
                         <label for="name" class="form-label">Price</label>
-                         <input type="name" class="form-control" id="name" >
+                         <input type="name" class="form-control" id="name" name="price" >
                       </div>
 
         
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                </form>
         </div>
+        <a href="list.php">View Data</a>
 
   </div>
 
