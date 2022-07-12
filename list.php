@@ -49,5 +49,7 @@
             ?>
         </tbody>
     </table>
+    <a href="create.php">View Data</a>
+
 </body>
 </html>
