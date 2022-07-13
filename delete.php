@@ -6,7 +6,7 @@ if(isset($_POST['deletedata']))
     $deleteID =$_POST['delete_id'];
     $query = $fluent->deleteFrom('product')->where('id', $deleteID)->execute();
     sleep(2);
-    header('Location: list.php');    
+    header('Location: index.php');    
     }
 
 ?>

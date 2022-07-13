@@ -1,7 +1,8 @@
 <?php 
 require 'vendor/autoload.php';
-
-$pdo = new PDO('mysql:dbname=fluentdb', 'user', 'password');
+$user = 'root';
+$password='';
+$pdo = new PDO('mysql:dbname=lab_4', $user, $password);
 $fluent = new \Envms\FluentPDO\Query($pdo);
 
    /*

@@ -22,16 +22,6 @@ if(isset($_POST['submit'])){
 ?>
 
 
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +37,7 @@ if(isset($_POST['submit'])){
   <div class="container">
        <div class="vh-100 d-flex justify-content-center align-items-center flex-column gap-4">
        <h3>Add Your Product Here</h3>
+       <a href="index.php">View Data</a>
 
                 <form action="create.php" method="POST">
                       <div class="mb-3">
@@ -65,10 +56,9 @@ if(isset($_POST['submit'])){
                       </div>
 
         
-                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
                </form>
         </div>
-        <a href="list.php">View Data</a>
 
   </div>
 
