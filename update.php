@@ -1,18 +1,19 @@
 <?php 
   require_once 'db.php';
-  $updateID =$_GET['id'];
+  $updateID =$_GET['updateid'];
   $query1 = $fluent->from('product')->where('id',$updateID)->fetch();
 
   if(isset($_POST['submit'])){
     $product_name =htmlentities($_POST['name']);
     $amount =htmlentities($_POST['amount']);
     $price =htmlentities($_POST['price']);
+    $itemId=htmlentities($_POST['itemId']);
   if(empty( $product_name) || empty($amount) || empty( $price)){
     echo "<script>alert('Must Fill all Informtion')</script>";
   }else{
 
     $value= array('name'=> $product_name,'amount'=>$amount,'price'=>$price);
-    $query = $fluent->update('product')->set($value)->where('id',$updateID)->execute();
+    $query = $fluent->update('product')->set($value)->where('id',$itemId)->execute();
     echo "<script>alert('Insertion Success')</script>";
   }
     
@@ -30,7 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Update</title>
 </head>
 <body>
 <div class="container">
@@ -52,6 +53,11 @@
                       <div class="mb-3">
                         <label for="name" class="form-label">Price</label>
                          <input type="name" class="form-control" id="name" name="price" value= <?php echo  $query1['price'] ?>  >
+                      </div>
+
+                      <div class="mb-3">
+                      
+                         <input type="hidden" class="form-control" id="name"  name="itemId" value= <?php echo  $query1['id'] ?>  >
                       </div>
 
         
